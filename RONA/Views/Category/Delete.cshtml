@@ -1,0 +1,62 @@
+﻿@model Category
+
+<form method="post">
+    <input asp-for="Id" hidden />
+    <div class="border-0 p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Supprimer la categorie</h2>
+            <hr />
+        </div>
+        <div asp-validation-summary="All" class="text-bg-secondary shadow-sm"></div>
+        <div class="mb-3 row">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="form-control" readonly />
+            
+        </div>
+        <div class="mb-3 row">
+            <label asp-for="DisplayOrder"></label>
+            <input asp-for="DisplayOrder" class="form-control" readonly/>
+            
+        </div>
+
+        <div class="row">
+            <div class="col-6 col-md-3">
+                <button id="confirmationSup" type="button" class="btn btn-warning form-control" style="margin-left:-10px" onclick="document.getElementById('deleteConfirmation').style.display = 'block'  ">Supprimer</button>
+
+            </div>
+            <div class="col-6 col-md-3">
+                <a asp-controller="Category" asp-action="Index" class="btn btn-light form-control">Annuler</a>
+            </div>
+        </div>
+        <div>
+            <hr />
+        </div>
+        <div id="deleteConfirmation" class="row" style="display: none">
+            
+                <button type="submit" class="btn btn-danger form-control">Valider la suppression</button>
+            
+           
+        </div>
+      @*   <div class="row">
+
+            <div class="col-6 col-md-3">
+                <button type="button" class="btn btn-danger form-control">Supprimer</button>
+
+            </div>
+
+            <div class="col-6 col-md-3">
+
+                <a asp-controller="Category" asp-action="Index" class="btn btn-light form-control">Annuler</a>
+            </div> *@
+        </div>
+
+    </div>
+
+
+</form>
+@section Scripts
+{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
