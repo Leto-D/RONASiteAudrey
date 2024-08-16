@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("RONA")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+466f93cbffeee8f5651aaf38988b3b4053cb8690")]
 [assembly: System.Reflection.AssemblyProductAttribute("RONA")]
 [assembly: System.Reflection.AssemblyTitleAttribute("RONA")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

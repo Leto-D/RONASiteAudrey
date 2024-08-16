@@ -1502,6 +1502,51 @@
             "rid": "win"
           }
         }
+      },
+      "Rona.DataAcces/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "8.0.8",
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.8",
+          "RONA.Models": "1.0.0",
+          "RONA.Utility": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Rona.DataAcces.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Rona.DataAcces.dll": {}
+        }
+      },
+      "RONA.Models/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "8.0.8",
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.8",
+          "RONA.Utility": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/RONA.Models.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RONA.Models.dll": {}
+        }
+      },
+      "RONA.Utility/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "8.0.8",
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.8"
+        },
+        "compile": {
+          "bin/placeholder/RONA.Utility.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RONA.Utility.dll": {}
+        }
       }
     }
   },
@@ -4096,13 +4141,32 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "Rona.DataAcces/1.0.0": {
+      "type": "project",
+      "path": "../Rona.DataAcces/Rona.DataAcces.csproj",
+      "msbuildProject": "../Rona.DataAcces/Rona.DataAcces.csproj"
+    },
+    "RONA.Models/1.0.0": {
+      "type": "project",
+      "path": "../RONA.Models/RONA.Models.csproj",
+      "msbuildProject": "../RONA.Models/RONA.Models.csproj"
+    },
+    "RONA.Utility/1.0.0": {
+      "type": "project",
+      "path": "../RONA.Utility/RONA.Utility.csproj",
+      "msbuildProject": "../RONA.Utility/RONA.Utility.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
       "Microsoft.EntityFrameworkCore >= 8.0.8",
+      "Microsoft.EntityFrameworkCore.Design >= 8.0.8",
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.8",
-      "Microsoft.EntityFrameworkCore.Tools >= 8.0.8"
+      "Microsoft.EntityFrameworkCore.Tools >= 8.0.8",
+      "RONA.Models >= 1.0.0",
+      "RONA.Utility >= 1.0.0",
+      "Rona.DataAcces >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -4112,11 +4176,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dmitr\\RONABackUp\\RONA\\RONA\\RONA.csproj",
+      "projectUniqueName": "C:\\Users\\Dmitr\\OneDrive\\Bureau\\RONA\\RONA\\RONA.csproj",
       "projectName": "RONA",
-      "projectPath": "C:\\Users\\Dmitr\\RONABackUp\\RONA\\RONA\\RONA.csproj",
+      "projectPath": "C:\\Users\\Dmitr\\OneDrive\\Bureau\\RONA\\RONA\\RONA.csproj",
       "packagesPath": "C:\\Users\\Dmitr\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dmitr\\RONABackUp\\RONA\\RONA\\obj\\",
+      "outputPath": "C:\\Users\\Dmitr\\OneDrive\\Bureau\\RONA\\RONA\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -4137,7 +4201,17 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Dmitr\\OneDrive\\Bureau\\RONA\\Rona.DataAcces\\Rona.DataAcces.csproj": {
+              "projectPath": "C:\\Users\\Dmitr\\OneDrive\\Bureau\\RONA\\Rona.DataAcces\\Rona.DataAcces.csproj"
+            },
+            "C:\\Users\\Dmitr\\OneDrive\\Bureau\\RONA\\RONA.Models\\RONA.Models.csproj": {
+              "projectPath": "C:\\Users\\Dmitr\\OneDrive\\Bureau\\RONA\\RONA.Models\\RONA.Models.csproj"
+            },
+            "C:\\Users\\Dmitr\\OneDrive\\Bureau\\RONA\\RONA.Utility\\RONA.Utility.csproj": {
+              "projectPath": "C:\\Users\\Dmitr\\OneDrive\\Bureau\\RONA\\RONA.Utility\\RONA.Utility.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -4156,6 +4230,12 @@
         "targetAlias": "net8.0",
         "dependencies": {
           "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[8.0.8, )"
+          },
+          "Microsoft.EntityFrameworkCore.Design": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
             "target": "Package",
             "version": "[8.0.8, )"
           },

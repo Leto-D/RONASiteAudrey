@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
-using SiteRONA.Models;
+using RONA.Models;
 using System.Diagnostics;
 
-namespace SiteRONA.Controllers
+namespace RONA.Controllers
 {
     public class HomeController : Controller
     {

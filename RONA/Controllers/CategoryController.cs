@@ -1,20 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SiteRONA.Data;
-using SiteRONA.Models;
+using Rona.DataAcces.Repository.InterfaceRepository;
+using RONA.DataAccess.Data;
+using RONA.Models;
 
 namespace SiteRONA.Controllers
 {
     public class CategoryController : Controller
     {
 
-        private readonly ApplicationDbContext _db;
-        public CategoryController(ApplicationDbContext db) 
+        private readonly ICategoryRepository _categoryRepo;
+        public CategoryController(ICategoryRepository db) 
         {
-            _db= db;
+            _categoryRepo = db;
         }
         public IActionResult Index()
         {
-            List<Category> objCategoryList = _db.Categories.ToList();
+            List<Category> objCategoryList = _categoryRepo.GetAll().ToList();
             return View(objCategoryList);
         }
 
@@ -26,13 +27,13 @@ namespace SiteRONA.Controllers
         [HttpPost]
         public IActionResult Create(Category obj)
         {
-            if (_db.Categories.Any(u => u.Name == obj.Name || u.DisplayOrder == obj.DisplayOrder))
+            if (_categoryRepo.GetAll().Any(u => u.Name == obj.Name || u.DisplayOrder == obj.DisplayOrder))
             {
-                if (_db.Categories.Any(u => u.Name == obj.Name))
+                if (_categoryRepo.GetAll().Any(u => u.Name == obj.Name))
                 {
                     ModelState.AddModelError("Name", "Ce nom de catégorie existe déjà");
                 }
-                if (_db.Categories.Any(u => u.DisplayOrder == obj.DisplayOrder))
+                if (_categoryRepo.GetAll().Any(u => u.DisplayOrder == obj.DisplayOrder))
                 {
                     ModelState.AddModelError("DisplayOrder", "Cet ordre d'affichage existe déjà");
                 }
@@ -40,8 +41,8 @@ namespace SiteRONA.Controllers
             }
             if(ModelState.IsValid)
             {
-                _db.Categories.Add(obj);
-                _db.SaveChanges();
+                _categoryRepo.Add(obj);
+                _categoryRepo.Save();
                 TempData["message"] = $"La catégorie {obj.Name} a été ajoutée avec succès";
                 return RedirectToAction("Index");
             }
@@ -53,7 +54,7 @@ namespace SiteRONA.Controllers
             {
                 return NotFound();
             }
-            Category categoryFromDb = _db.Categories.Find(id);
+            Category categoryFromDb = _categoryRepo.Get(u => u.Id == id);
             if (categoryFromDb == null)
             {
                 return NotFound();
@@ -64,19 +65,11 @@ namespace SiteRONA.Controllers
         [HttpPost]
         public IActionResult Edit(Category obj)
         {
-            if (_db.Categories.Any(u => u.Name == obj.Name))
-            {
-                if (_db.Categories.Any(u => u.Name == obj.Name))
-                {
-                    ModelState.AddModelError("Name", "Ce nom de catégorie existe déjà");
-                }
-               
-                return View();
-            }
+            
             if (ModelState.IsValid)
             {
-                _db.Categories.Update(obj);
-                _db.SaveChanges();
+                _categoryRepo.Update(obj);
+                _categoryRepo.Save();
                 TempData["message"] = $"La catégorie {obj.Name} a été modifiée avec succès";
                 return RedirectToAction("Index");
             }
@@ -88,7 +81,7 @@ namespace SiteRONA.Controllers
             {
                 return NotFound();
             }
-            Category categoryFromDb = _db.Categories.Find(id);
+            Category? categoryFromDb = _categoryRepo.Get(u => u.Id == id);
             if (categoryFromDb == null)
             {
                 return NotFound();
@@ -96,14 +89,18 @@ namespace SiteRONA.Controllers
             return View(categoryFromDb);
         }
 
-        [HttpPost]
-        public IActionResult Delete(Category obj)
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeletePOST(int? id)
         {
-            
+            Category? obj = _categoryRepo.Get(u => u.Id == id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
             if (ModelState.IsValid)
             {
-                _db.Categories.Remove(obj);
-                _db.SaveChanges();
+                _categoryRepo.Remove(obj);
+                _categoryRepo.Save();
                 TempData["message"] = $"La catégorie {obj.Name} a été supprimée avec succès";
                 return RedirectToAction("Index");
             }

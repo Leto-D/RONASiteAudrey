@@ -9,8 +9,12 @@
       "RONA/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "8.0.8",
+          "Microsoft.EntityFrameworkCore.Design": "8.0.8",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.8",
-          "Microsoft.EntityFrameworkCore.Tools": "8.0.8"
+          "Microsoft.EntityFrameworkCore.Tools": "8.0.8",
+          "RONA.Models": "1.0.0",
+          "RONA.Utility": "1.0.0",
+          "Rona.DataAcces": "1.0.0"
         },
         "runtime": {
           "RONA.dll": {}
@@ -856,6 +860,36 @@
             "fileVersion": "6.0.21.52210"
           }
         }
+      },
+      "Rona.DataAcces/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "8.0.8",
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.8",
+          "RONA.Models": "1.0.0",
+          "RONA.Utility": "1.0.0"
+        },
+        "runtime": {
+          "Rona.DataAcces.dll": {}
+        }
+      },
+      "RONA.Models/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "8.0.8",
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.8",
+          "RONA.Utility": "1.0.0"
+        },
+        "runtime": {
+          "RONA.Models.dll": {}
+        }
+      },
+      "RONA.Utility/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "8.0.8",
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.8"
+        },
+        "runtime": {
+          "RONA.Utility.dll": {}
+        }
       }
     }
   },
@@ -1396,6 +1430,21 @@
       "sha512": "sha512-IXoJOXIqc39AIe+CIR7koBtRGMiCt/LPM3lI+PELtDIy9XdyeSrwXFdWV9dzJ2Awl0paLWUaknLxFQ5HpHZUog==",
       "path": "system.windows.extensions/6.0.0",
       "hashPath": "system.windows.extensions.6.0.0.nupkg.sha512"
+    },
+    "Rona.DataAcces/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RONA.Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RONA.Utility/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }
